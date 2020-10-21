@@ -34,8 +34,6 @@ class CloudTrailTrailResourceSpec(CloudTrailResourceSpec):
 
         Where the dicts represent results from describe_trails."""
         trails = {}
-        # paginator = client.get_paginator("describe_trails")
-        # for resp in paginator.paginate():
         resp = client.describe_trails()
         for trail in resp.get("trailList", []):
             resource_arn = trail["TrailARN"]
