@@ -1,4 +1,4 @@
-"""Resource representing an AWS Region"""
+"""Resource for AWS CloudTrail Trails"""
 from typing import Type
 
 from botocore.client import BaseClient
