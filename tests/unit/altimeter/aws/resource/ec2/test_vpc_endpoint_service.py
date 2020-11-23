@@ -5,10 +5,12 @@ from altimeter.aws.resource.ec2.vpc_endpoint_service import VpcEndpointServiceRe
 
 
 class TestVpcEndpointServiceResourceSpec(unittest.TestCase):
+    maxDiff = None
+
     def test_schema_parse(self):
         resource_arn = "arn:aws:ec2:us-west-2:111122223333:vpc-endpoint-service/com.amazonaws.vpce.us-west-2.vpce-svc-01234abcd5678ef01"
         aws_resource_dict = {
-            "ServiceType": [{"ServiceType": "Interface"}],
+            "ServiceType": "Interface",
             "ServiceId": "vpce-svc-01234abcd5678ef01",
             "ServiceName": "com.amazonaws.vpce.us-west-2.vpce-svc-01234abcd5678ef01",
             "ServiceState": "Available",
@@ -46,7 +48,7 @@ class TestVpcEndpointServiceResourceSpec(unittest.TestCase):
                 {"pred": "acceptance_required", "obj": True, "type": "simple"},
                 {"pred": "availability_zones", "obj": "us-west-2a", "type": "simple"},
                 {"pred": "availability_zones", "obj": "us-west-2b", "type": "simple"},
+                {"pred": "Name", "obj": "Splunk HEC", "type": "tag"},
             ],
         }
-
         self.assertDictEqual(alti_resource_dict, expected_alti_resource_dict)
