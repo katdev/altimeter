@@ -10,7 +10,7 @@ class TestVpcEndpointServiceResourceSpec(unittest.TestCase):
     def test_schema_parse(self):
         resource_arn = "arn:aws:ec2:us-west-2:111122223333:vpc-endpoint-service/com.amazonaws.vpce.us-west-2.vpce-svc-01234abcd5678ef01"
         aws_resource_dict = {
-            "ServiceType": "Interface",
+            "ServiceType": [{"ServiceType": "Interface"}],
             "ServiceId": "vpce-svc-01234abcd5678ef01",
             "ServiceName": "com.amazonaws.vpce.us-west-2.vpce-svc-01234abcd5678ef01",
             "ServiceState": "Available",

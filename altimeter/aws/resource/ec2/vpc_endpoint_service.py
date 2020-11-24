@@ -1,4 +1,4 @@
-"""Resource for VPC Endpoints"""
+"""Resource for VPC Endpoint Services"""
 from typing import Type
 
 from botocore.client import BaseClient
@@ -6,7 +6,7 @@ from botocore.client import BaseClient
 from altimeter.aws.resource.resource_spec import ListFromAWSResult
 from altimeter.aws.resource.ec2 import EC2ResourceSpec
 from altimeter.core.graph.field.scalar_field import ScalarField, EmbeddedScalarField
-from altimeter.core.graph.field.list_field import ListField
+from altimeter.core.graph.field.list_field import ListField, AnonymousListField
 from altimeter.core.graph.field.tags_field import TagsField
 from altimeter.core.graph.schema import Schema
 
@@ -16,7 +16,7 @@ class VpcEndpointServiceResourceSpec(EC2ResourceSpec):
 
     type_name = "vpc-endpoint-service"
     schema = Schema(
-        ScalarField("ServiceType"),
+        AnonymousListField("ServiceType", ScalarField("ServiceType")),
         ScalarField("ServiceName"),
         ScalarField("ServiceState"),
         ScalarField("AcceptanceRequired"),
@@ -45,6 +45,6 @@ class VpcEndpointServiceResourceSpec(EC2ResourceSpec):
                 resource_arn = cls.generate_arn(
                     account_id=account_id, region=region, resource_id=service["ServiceId"]
                 )
-                service["ServiceType"] = service["ServiceType"][0]["ServiceType"]
                 services[resource_arn] = service
+        print(services)
         return ListFromAWSResult(resources=services)
