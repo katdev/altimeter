@@ -7,6 +7,7 @@ import moto
 from altimeter.qj.schemas.job import Job, Category, Severity, JobGraphSpec
 from altimeter.qj.lambdas.queryjob import enqueue_queries
 
+
 @moto.mock_sqs
 def test_enqueue_queries():
     sqs_client = boto3.client("sqs", region_name="us-west-2")

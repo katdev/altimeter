@@ -13,7 +13,6 @@ from altimeter.qj.settings import (
     DEFAULT_MAX_RESULT_AGE_SEC_LIMIT,
 )
 
-
 # pylint: disable=too-few-public-methods
 class QJConfig(BaseSettings):
     """General high level configuration"""
@@ -21,6 +20,13 @@ class QJConfig(BaseSettings):
     app_name: str = "QueryJobExecutor"
     account_id_key: str = "account_id"
     region: str
+
+
+# pylint: disable=too-few-public-methods
+class QJHandlerConfig(BaseSettings):
+    """Lambda handler configuration"""
+
+    mode: str
 
 
 # pylint: disable=too-few-public-methods
