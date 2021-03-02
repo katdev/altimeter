@@ -13,6 +13,7 @@ from altimeter.qj.settings import (
     DEFAULT_MAX_RESULT_AGE_SEC_LIMIT,
 )
 
+
 # pylint: disable=too-few-public-methods
 class QJConfig(BaseSettings):
     """General high level configuration"""
