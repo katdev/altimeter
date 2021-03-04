@@ -5,7 +5,7 @@ import boto3
 import moto
 
 from altimeter.qj.schemas.job import Job, Category, Severity, JobGraphSpec
-from altimeter.qj.lambdas.queryjob import enqueue_queries
+from bin.queryjob_lambda import enqueue_queries
 
 
 @moto.mock_sqs
