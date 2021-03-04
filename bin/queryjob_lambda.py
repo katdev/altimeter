@@ -7,7 +7,6 @@ from typing import Any, Dict, List
 import uuid
 
 import boto3
-from pydantic import ValidationError
 
 from altimeter.core.log import Logger
 from altimeter.core.neptune.client import AltimeterNeptuneClient, NeptuneEndpoint
