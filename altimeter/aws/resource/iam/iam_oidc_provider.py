@@ -18,8 +18,8 @@ class IAMOIDCProviderResourceSpec(IAMResourceSpec):
     schema = Schema(
         ScalarField("Url"),
         ScalarField("CreateDate"),
-        ListField("ClientIDList", EmbeddedScalarField()),
-        ListField("ThumbprintList", EmbeddedScalarField()),
+        ListField("ClientIDList", EmbeddedScalarField(), alti_key="client_id"),
+        ListField("ThumbprintList", EmbeddedScalarField(), alti_key="thumbprint"),
     )
 
     @classmethod
